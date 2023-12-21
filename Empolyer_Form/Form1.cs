@@ -47,12 +47,12 @@ namespace Empolyer_Form
                 con1.Open();
                 var empid = com1.ExecuteScalar();
                 com2.Parameters.AddWithValue("@EmpID", empid);
-                com2.BeginExecuteNonQuery();
+                com2.ExecuteNonQuery();
             }
-            catch (Exception es)
+            catch (Exception ex)
             {
-                Console.WriteLine("Exception type: " + es.GetType());
-                Console.WriteLine("Exception message: " + es.Message);
+                Console.WriteLine("Exception type: " + ex.GetType());
+                Console.WriteLine("Exception message: " + ex.Message);
             }
             finally { con1.Close(); }
             MessageBox.Show("Successfully Added");
